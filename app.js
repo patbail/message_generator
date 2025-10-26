@@ -29,7 +29,7 @@ const categorySelection = () => {
 }
 
 // Looping trough object properties
-const objectLoop = object => {
+const generateName = object => {
 	// let nameArray = [];
 	let name = '';
 	for (let key in object) {
@@ -42,6 +42,17 @@ const objectLoop = object => {
 	return name;
 } 
 
-console.log(objectLoop(person));
+const returnName = () => {
+	switch(categorySelection()) {
+		case 'encampment':
+			return `The encampment name is: ${generateName(encampment)}`;
+		case 'person':
+			return `The person name is: ${generateName(person)}`;
+		case 'dungeon':
+			return `The dungeon name is: ${generateName(dungeon)}`;
+		default:
+			return 'Select encampment, person or dungeon.';
+	}
+}
 
-console.log(categorySelection());
+console.log(returnName());
